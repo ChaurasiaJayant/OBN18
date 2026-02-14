@@ -245,4 +245,31 @@ function familyTree(n) {
   if (n === 1) return 1;
   return 2 * familyTree(n - 1) + 1;
 }
-console.log(familyTree(3));
+// console.log(familyTree(3));
+
+// An explorer is trapped in a magical maze represented as an n × m grid. He starts at the top-left
+// corner and wants to reach the bottom-right corner. He can only move:
+// Right
+// Down
+// Problem Statement
+// Find the total number of unique paths from (0,0) to (n-1,m-1) using recursion.
+// Constraints
+// 1 ≤ n, m ≤ 15
+// No loops allowed
+// Only recursion
+// Examples
+// Input: n = 2, m = 2
+// Output: 2
+// Paths:
+// Right → Down
+// Down → Right
+// Input: n = 3,m = 3
+// Output: 6
+
+function magicalMaze(n, m, row, col) {
+  if (row == n) return 1;
+  if (col == m) return 1;
+
+  return magicalMaze(n, m, row + 1, col) + magicalMaze(n, m, row, col + 1);
+}
+console.log(magicalMaze(4, 4, 1, 1));

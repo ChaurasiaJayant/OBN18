@@ -1,3 +1,5 @@
+// MERGE SORT
+
 function mergeSort(arr) {
   if (arr.length <= 1) {
     return arr;
@@ -12,8 +14,9 @@ function mergeSort(arr) {
 
   return merge(sortedLeft, sortedRight);
 }
-
+let count = 0;
 function merge(left, right) {
+  count++;
   const result = [];
   let leftIndex = 0,
     rightIndex = 0;
@@ -37,9 +40,9 @@ function merge(left, right) {
     result.push(right[rightIndex]);
     rightIndex++;
   }
-  return result;
+  return count;
 }
 
-const numbers = [3, 4, 8, 6, 5, 9, 0];
+const numbers = [4, 2, 3, 1];
 
-console.log(mergeSort(numbers));
+console.log(mergeSort(numbers, 0));
