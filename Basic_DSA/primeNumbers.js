@@ -30,7 +30,7 @@ function isPrime(n, i = 2) {
   return isPrime(n, i + 1);
 }
 function range(start, end) {
-  if (start > end) return false;
+  if (start > end) return;
 
   if (isPrime(start)) {
     console.log(start);

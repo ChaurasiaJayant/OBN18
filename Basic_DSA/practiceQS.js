@@ -1,8 +1,6 @@
 // 1. Given an array of users with ages, group them into age categories: "child" (<18), "adult" (18-60),
 //  "senior" (>60). Return an object with counts for each category.
 
-const { table } = require("console");
-
 const users = [
   { name: "Alice", age: 15 },
   { name: "Bob", age: 45 },
@@ -22,7 +20,7 @@ function category(arr) {
     Senior: senior.length,
   };
 }
-// console.log(category(users));
+console.log(category(users));
 
 // 2. Given an array of orders where each order contains multiple items, find all items that cost
 //  more than $50, calculate the total revenue from these items, and return the result grouped by category.
@@ -60,7 +58,7 @@ function getRevenue(orders) {
   }
   return result;
 }
-console.log(getRevenue(orders));
+// console.log(getRevenue(orders));
 
 // 3. You have an array of transactions. Calculate the total balance after applying a 2% fee on withdrawals only.
 
@@ -159,21 +157,25 @@ const prices = [
 
 function brkDays(arr) {
   let parr = [];
-  let rtn;
+  let rtn = [];
   for (let i = 1; i < arr.length; i++) {
     let tp = prices[i - 1].price + prices[i - 1].price * 0.05;
     if (prices[i].price > tp) {
       parr.push(prices[i]);
-      rtn =
-        ((prices[i].price - prices[i - 1].price) / prices[i - 1].price) * 100;
+      rtn
+        .push(
+          ((prices[i].price - prices[i - 1].price) / prices[i - 1].price) * 100,
+        )
+        .toFixed(2);
     }
   }
+  let avg = rtn.reduce((acc, sum) => acc + sum, 0);
   return {
     breakOutDays: parr,
-    averageBreakOutReturn: rtn.toFixed(2),
+    averageBreakOutReturn: (avg / rtn.length).toFixed(2),
   };
 }
-console.log(brkDays(prices));
+// console.log(brkDays(prices));
 
 // 5. You're building a content moderation tool for a social media platform. The system needs to extract meaningful keywords
 //  from user posts for better search indexing. Your team decides that only unique words with 4 or more characters
@@ -197,4 +199,4 @@ function wordss(sentences) {
   let tempArr = [...set];
   console.log(tempArr.sort());
 }
-wordss(sentences);
+// wordss(sentences);
