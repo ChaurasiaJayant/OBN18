@@ -288,3 +288,19 @@ console.log(wording(sentences));
 
 // Example Calculation:
 // Feb 14: ((4320000 - 4080000) / 4080000) × 100 = 5.88%
+
+function fib(n) {
+  let series = [];
+  let a = 0;
+  let b = 1;
+
+  for (let i = 0; i < n; i++) {
+    series.push(a);
+    let next = a + b;
+    a = b;
+    b = next;
+  }
+
+  return series;
+}
+console.log(fib(5));
