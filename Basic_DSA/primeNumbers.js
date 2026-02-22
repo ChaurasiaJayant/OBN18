@@ -22,13 +22,11 @@ function primeRange(start, end) {
 
 function isPrime(n, i = 2) {
   if (n < 2) return false;
-
   if (i * i > n) return true;
-
   if (n % i === 0) return false;
-
   return isPrime(n, i + 1);
 }
+
 function range(start, end) {
   if (start > end) return;
 

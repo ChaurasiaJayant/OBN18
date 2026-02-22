@@ -99,4 +99,4 @@ function freq(arr) {
   }
   return res;
 }
-console.log(freq([1, 2, 2, 3, 3, 4]));
+// console.log(freq([1, 2, 2, 3, 3, 4]));

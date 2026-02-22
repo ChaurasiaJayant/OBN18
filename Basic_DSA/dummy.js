@@ -303,4 +303,94 @@ function fib(n) {
 
   return series;
 }
-console.log(fib(5));
+// console.log(fib(5));
+
+function one(n) {
+  for (let i = 0; i < n; i++) {
+    let line = "";
+    for (let j = 0; j < n; j++) {
+      line += " * ";
+    }
+    console.log(line);
+  }
+}
+// one(5);
+
+function two(n) {
+  for (let i = 1; i <= n; i++) {
+    let line = "";
+    for (let j = 0; j < i; j++) {
+      line += " * ";
+    }
+    console.log(line);
+  }
+}
+// two(5);
+
+function three(n) {
+  for (let i = 1; i <= n; i++) {
+    let line = "";
+    for (let j = 1; j <= i; j++) {
+      line += j + " ";
+    }
+    console.log(line);
+  }
+}
+// three(5);
+
+function four(n) {
+  for (let i = 1; i <= n; i++) {
+    let line = "";
+    for (let j = 1; j <= i; j++) {
+      line += i + " ";
+    }
+    console.log(line);
+  }
+}
+// four(5);
+
+function five(n) {
+  for (let i = n; i >= 1; i--) {
+    let line = "";
+    for (let j = 1; j <= i; j++) {
+      line += j + " ";
+    }
+    console.log(line);
+  }
+}
+
+// five(5);
+
+function six(n) {
+  for (let i = n; i >= 1; i--) {
+    let line = "";
+    for (let j = 1; j <= i; j++) {
+      line += " * ";
+    }
+    console.log(line);
+  }
+}
+// six(5);
+
+function seven(n) {
+  for (let i = 1; i <= n; i++) {
+    let line = "";
+
+    //spaces
+    for (let j = 1; j <= n - i; j++) {
+      line += " ";
+    }
+
+    // stars
+    for (let j = 1; j <= 2 * i - 1; j++) {
+      line += "*";
+    }
+
+    for (let j = 1; j <= n - i; j++) {
+      line += " ";
+    }
+
+    console.log(line);
+  }
+}
+seven(5);
