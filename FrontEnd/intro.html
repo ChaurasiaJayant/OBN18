@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      style="
+        background-color: aqua;
+        padding: 10px;
+        border: 2px solid gray;
+        border-radius: 5px;
+      "
+    >
+      <h1>HTML - Hyper Text Markup Language</h1>
+      <h3>It is a markup language</h3>
+      <p style="font-weight: bold">
+        It uses tags to annotate content and tell the browser what each piece of
+        content IS
+      </p>
+      <p>Why this matters ??</p>
+      <ol>
+        <li>Every single page on the on the internet is build on HTML.</li>
+        <li>
+          Search engines crawl your HTML structure to understand and rank your
+          content.
+        </li>
+        <li>Browsers only understand HTML for content and structure.</li>
+      </ol>
+    </div>
+    <br>
+    <hr>
+     <h3>The core concepts of html -> The HTML tag! </h3>
+    <div style="background-color: yellow;  color: red; font-size: 20px; border: 2px solid black; min-height: 100px;">
+     <span><</span>tagname attribute = "value">content</span> <span><</span>/tagname>
+    </div>
+    <div>
+      <ul>
+        <li>Tag: The label that wraps thge content (Brackets)</li>
+        <li>Attribute:properties of the tag Note : Attributes are always written in the opening tag</li>
+        <li>Content:What the element wraps(text,media,link)</li>
+        <li>Final element : Opening tag + content + closing tag</li>
+      </ul>
+    </div>
+    <br>
+    <h4>Void Elements</h4>
+    <p>img tag</p>
+    <p>input</p>
+    <p>br</p>
+    <p>hr</p>
+    <a href="#">This is a link</a>
+
+    <h4>Types of Elements : Block and inline</h4>
+
+   <style>
+    td{
+        border:1px solid black
+    }
+    .title{
+        font-style: italic;
+    }
+</style>
+     
+      <table>
+        <tr>
+          <td>Behaviour</td>
+          <td>Block Elements</td>
+          <td>Inline Elements</td>
+        </tr>
+
+        <tr>
+          <td>Default</td>
+          <td>start on a new line</td>
+          <td>flow within the line of text</td>
+        </tr>
+
+        <tr>
+          <td>width</td>
+          <td>full width of parent</td>
+          <td>Only wide as the content</td>
+        </tr>
+
+        <tr>
+          <td>Contains</td>
+          <td>block+inline</td>
+          <td>only inline</td>
+        </tr>
+
+        <tr>
+          <td>Examples</td>
+          <td>div,p,h1-h6,section,nav,footer</td>
+          <td>span,strong,em,i,a</td>
+        </tr>
+
+      </table>
+
+      <h5>HTML Document Tree </h5>
+
+      <pre>
+        Document
+            -head
+             -title
+             -meta
+             -link
+             -style
+           -body
+              -header
+              -main
+              -footer
+              -div
+            </pre>
+            
+          </body>
+</html>
