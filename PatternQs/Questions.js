@@ -582,4 +582,66 @@ function twoFive(n) {
     console.log(line);
   }
 }
-twoFive(4);
+// twoFive(4);
+
+// 26.
+//    *
+//   * *
+//  *   *
+// *     *
+//  *   *
+//   * *
+//    *
+function twoSix(n) {
+  for (let i = 0; i < 2 * n - 1; i++) {
+    let line = "";
+    let lSpace = n - i - 1;
+    let rSpace = 2 * i - 1;
+
+    // lower half
+    if (i >= n) {
+      lSpace = i - n + 1;
+      rSpace = 2 * (2 * n - i - 2) - 1;
+    }
+
+    // left spaces
+    for (let j = 0; j < lSpace; j++) {
+      line += " ";
+    }
+
+    line += "*";
+
+    // middle spaces
+    for (let j = 0; j < rSpace; j++) {
+      line += " ";
+    }
+
+    if (i !== 0 && i !== 2 * n - 2) {
+      line += "*";
+    }
+
+    console.log(line);
+  }
+}
+
+// twoSix(4);
+
+// 27.
+
+// 5;
+// 45;
+// 345;
+// 2345;
+// 12345;
+
+function twoSeven(n, max = n) {
+  if (n === 0) return;
+  line = "";
+
+  for (let i = n; i <= max; i++) {
+    line += i;
+  }
+  console.log(line);
+  twoSeven(n - 1, max);
+}
+twoSeven(5);

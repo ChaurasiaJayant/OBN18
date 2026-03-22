@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <style>
+      .container,
+      .container2,
+      .container3,
+      .container4 {
+        width: 100%;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        overflow: hidden;
+      }
+      .left {
+        width: 45%;
+        margin-left: 5%;
+        float: left;
+        background-color: yellowgreen;
+      }
+      .right {
+        margin-left: 10%;
+        width: 30%;
+        background-color: red;
+
+        float: left;
+      }
+      .lp {
+        width: 100%;
+      }
+      .rp {
+        width: 100%;
+      }
+      #footer {
+        background-color: #004f98;
+        height: 300px;
+        margin-top: 40px;
+      }
+      ul {
+        margin-top: 20px;
+      }
+      li {
+        list-style-type: none;
+        margin-bottom: 5px;
+        color: white;
+        font-style: italic;
+      }
+      #shop {
+        text-align: left;
+        color: white;
+        margin-left: 2%;
+
+        width: 200px;
+        float: left;
+      }
+      .fhead {
+        margin: 35px;
+        padding: 0;
+        text-align: left;
+        font-weight: bold;
+      }
+      #information {
+        text-align: left;
+        color: white;
+        margin-left: 60px;
+
+        width: 200px;
+        float: left;
+      }
+      #about {
+        text-align: left;
+        color: white;
+        margin-left: 60px;
+
+        width: 200px;
+        float: left;
+      }
+      #newsletter {
+        text-align: left;
+        color: white;
+        margin-left: 60px;
+
+        width: 600px;
+        float: left;
+      }
+      i {
+        margin-left: 10px;
+        height: 50px;
+        width: 50px;
+        margin-top: 20px;
+      }
+      #mail {
+        font-size: small;
+        font-weight: bold;
+        border: 1px solid white;
+        color: white;
+        background-color: #222425;
+        margin-right: 10px;
+        width: 300px;
+        height: 35px;
+      }
+      .first {
+        margin-top: 50px;
+        margin-left: 10%;
+        width: 45%;
+        float: left;
+        line-height: 1.5;
+        margin-right: 10%;
+        text-align: left;
+        font-weight: bold;
+      }
+      .second {
+        width: 25%;
+        margin-top: 130px;
+        margin-right: 10%;
+
+        float: left;
+      }
+      .inp {
+        width: 100%;
+        height: 40px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+      }
+      #taa {
+        width: 100%;
+        height: 300px;
+        margin-top: 10px;
+      }
+      h5 {
+        text-align: left;
+        font-weight: bold;
+      }
+      h6 {
+        text-align: left;
+        font-weight: bold;
+      }
+      p {
+        font-size: smaller;
+      }
+      #fpp1 {
+        margin-bottom: 30px;
+      }
+
+      #lfoot {
+        width: 100%;
+        background-color: #222425;
+        height: 200px;
+        padding-top: 30px;
+      }
+      .pfoot {
+        color: white;
+        font-size: smaller;
+        margin-left: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+      <div class="container-fluid">
+        <img src="pictures/thf.webp" alt="" class="thfp" />
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+            <li class="nav-item">
+              <a class="nav-link align-items-center d-flex" href="index.html"
+                >SHOP <i class="fa-solid fa-cart-shopping firsti"></i
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">ABOUT THF</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="gifting.html">GIFTING</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">CONTACT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="events.html">EVENTS</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- photos-->
+    <div class="container clearfix">
+      <div class="left"><img src="pictures/e1.webp" alt="" class="lp" /></div>
+      <div class="right"><img src="pictures/e2.webp" alt="" class="rp" /></div>
+    </div>
+
+    <div class="container2 clearfix">
+      <div class="left"><img src="pictures/e3.webp" alt="" class="lp" /></div>
+      <div class="right"><img src="pictures/e4.jpg" alt="" class="rp" /></div>
+    </div>
+
+    <div class="container3 clearfix">
+      <div class="left"><img src="pictures/e5.webp" alt="" class="lp" /></div>
+      <div class="right"><img src="pictures/e6.webp" alt="" class="rp" /></div>
+    </div>
+
+    <div class="container4 clearfix">
+      <div class="left"><img src="pictures/e7.webp" alt="" class="lp" /></div>
+      <div class="right"><img src="pictures/e8.webp" alt="" class="rp" /></div>
+    </div>
+
+    <!-- footer-->
+    <div id="footer">
+      <div id="shop">
+        <h6 class="fhead">SHOP</h6>
+        <ul>
+          <li>Artisanal Sweets</li>
+          <li>Baklava</li>
+          <li>Cookies</li>
+          <li>Puffs & Rusk</li>
+          <li>Savoury & Namkeens</li>
+          <li>Gift Hampers</li>
+        </ul>
+      </div>
+
+      <div id="information">
+        <h6 class="fhead">INFORMATION</h6>
+        <ul>
+          <li>Privacy Policy</li>
+          <li>Refund Policy</li>
+          <li>Shipping Policy</li>
+          <li>Terms of Service</li>
+        </ul>
+      </div>
+      <div id="about">
+        <h6 class="fhead">About</h6>
+        <ul>
+          <li><a href="about.html" id="abt1">About THF</a></li>
+        </ul>
+      </div>
+      <div id="newsletter">
+        <h6 class="fhead">NEWSLETTER SIGN UP</h6>
+        <ul>
+          <li>
+            Sign up for exclusive updates,new arrivals & insider only discounts
+          </li>
+          <li>
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              id="mail"
+            /><button id="subm">SUBMIT</button>
+          </li>
+          <li>
+            <i class="fa-brands fa-instagram"></i
+            ><i class="fa-brands fa-square-facebook"></i
+            ><i class="fa-brands fa-pinterest"></i
+            ><i class="fa-brands fa-youtube"></i
+            ><i class="fa-brands fa-twitter"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- inner footer-->
+    <div id="lfoot">
+      <p class="pfoot">
+        B-192, Aliganj Main Rd, opp. Ram Krishna Math, Nirala Nagar, Lucknow,
+        Uttar Pradesh 226020.
+      </p>
+      <p class="pfoot">info@thehazelnutfactory.com</p>
+      <p class="pfoot">Customer Care No. - +917084400400</p>
+      <p class="pfoot">
+        A unit of HAZELNUT FACTORY FOOD PRODUCTS PRIVATE LIMITED
+      </p>
+    </div>
+
+    <script src="jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </body>
+</html>

@@ -100,3 +100,94 @@ function freq(arr) {
   return res;
 }
 // console.log(freq([1, 2, 2, 3, 3, 4]));
+
+function areAnagrams(str1, str2) {
+  let map = new Map();
+  let map2 = new Map();
+  if (str1.length !== str2.length) {
+    return false;
+  }
+
+  for (let el of str1) {
+    if (map.has(el)) {
+      map.set(el, map.get(el) + 1);
+    } else {
+      map.set(el, 1);
+    }
+  }
+  for (let el of str2) {
+    if (map2.has(el)) {
+      map2.set(el, map2.get(el) + 1);
+    } else {
+      map2.set(el, 1);
+    }
+  }
+  for (let ch of str1) {
+    if (map.get(ch) !== map2.get(ch)) {
+      return false;
+    }
+    return true;
+  }
+}
+// console.log(areAnagrams("cat", "tact"));
+
+function deepCopy(obj) {
+  let res = [];
+  for (let el of arr) {
+    if (Array.isArray(el)) {
+      res.push(...deepCopy(el));
+    } else {
+      res.push(el);
+    }
+  }
+  return res;
+}
+// console.log(deepCopy([1, [2, [3, [4]], 5]]));
+
+function recStr(str, res = "") {
+  if (str.length === 0) return res;
+
+  res += str[str.length - 1];
+  return recStr(str.slice(0, str.length - 1), res);
+}
+// console.log(recStr("hi"));
+
+function matrix(row, col) {
+  let mat = [];
+  let num = 1;
+
+  for (let i = 0; i < row; i++) {
+    mat[i] = [];
+    for (let j = 0; j < col; j++) {
+      mat[i][j] = num;
+
+      num++;
+    }
+  }
+  return mat;
+}
+// console.log(matrix(3, 4));
+
+let arr1 = [1, 2, 3];
+let arr2 = [4, 5, 6];
+// console.log([...arr1, ...arr2]);
+
+const myMap = new Map();
+
+myMap.set("name", "John");
+//set method is used for creating as well as updating (because of overriding)
+myMap.set("name", "jack");
+// console.log(myMap);
+
+const a = {
+  prop: "abc",
+  inner: {
+    innerProp: "mno",
+  },
+};
+
+const b = { ...a };
+b.prop = "hello";
+b.inner.innerProp = "xyz";
+console.log(a);
+console.log(b);

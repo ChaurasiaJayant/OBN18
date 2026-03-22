@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application Form</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 600px;
+        margin: 40px auto;
+        background-color: #f9f9f9;
+      }
+      h2 {
+        color: #333;
+      }
+      fieldset {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      legend {
+        font-weight: bold;
+        color: #444;
+        padding: 0px;
+      }
+      label {
+        display: block;
+        margin-top: 12px;
+        font-size: 0.9em;
+        color: #555;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 9px 11px;
+        margin-top: 4px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 1em;
+      }
+
+      input:not(:placeholder-shown):valid {
+        border-color: #28a745;
+        background: #f0fff4;
+      }
+
+      .hint {
+        font-size: 0.78em;
+        color: #888;
+        margin: 3px 0 0 2px;
+      }
+
+      button {
+        background: #0066cc;
+        color: white;
+        padding: 12px 28px;
+        border: none;
+        border-radius: 4px;
+        font-size: 1em;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+      button:hover {
+        background: #004fa3;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Job Application Form</h2>
+
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Personal Information</legend>
+        <label for="name">Full Name*</label>
+        <input
+          type="text"
+          placeholder="Rahul Sharma"
+          required
+          minlength="5"
+          maxlength="30"
+          title="Name should contain only letters and spaces"
+        />
+
+        <label for="email">Email Address *</label>
+        <input
+          type="email"
+          name="email"
+          id="mail"
+          required
+          title="Please fill out this field"
+          placeholder="rahul@example.com"
+        />
+
+        <label for="mobile">Mobile Number *</label>
+        <input
+          type="tel"
+          name="phone"
+          required
+          title="Enter a valid 10-digit indian mobile number"
+          placeholder="9876543210"
+        />
+        <p class="hint">
+          10-digit Indian mobile number (starting with 6, 7, 8, or 9)
+        </p>
+
+        <label for="dob">Date of Birth *</label>
+        <input
+          type="date"
+          max="22-03-2008"
+          min="22-03-1950"
+          placeholder="dd-mm-yyyy"
+          required
+        />
+        <p class="hint">You must be 18 years or older to apply</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Professional Details</legend>
+
+        <label for="experience">Years of experience *</label>
+        <input
+          type="number"
+          required
+          placeholder="e.g. 3"
+          min="1"
+          step="1"
+          title="Please fill out this field"
+        />
+
+        <label for="salary">Expected Salary (₹ per month) *</label>
+        <input
+          type="number"
+          placeholder="e.g. 75000"
+          step="5000"
+          title="Please fill out this field"
+          min="10000"
+          required
+          max="2000000"
+        />
+        <p class="hint">Enter in multiples of 5000</p>
+
+        <label for="portfolio">Portfolio / GitHub URL *</label>
+        <input
+          type="url"
+          required
+          placeholder="https://github.com/yourname"
+          title="Please fill out this field"
+        />
+
+        <label for="linkedin">LinkedIn Profile (optional)</label>
+        <input type="url" placeholder="https://linkedin.com/in/username" />
+
+        <label for="resume">Upload Resume (PDF) *</label>
+        <input type="file" required accept=".pdf" />
+        <p class="hint">PDF files only</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Work Preferences</legend>
+
+        <label for="preference">Preferred Job Type</label>
+        <select name="jobtype" id="jobtype" required>
+          <option value="select">--Select--</option>
+          <option value="full">Full Time</option>
+          <option value="part">Part Time</option>
+          <option value="intern">Internship</option>
+          <option value="freelance">Freelancing</option>
+        </select>
+
+        <label for="notice">Notice Period</label>
+        <input
+          type="number"
+          placeholder="30"
+          min="0"
+          max="180"
+          required
+          step="15"
+        />
+        <p class="hint">In multiples of 15 days (0,15,30,45....)</p>
+
+        <label for="cover">Cover Letter *</label>
+        <textarea
+          name="cover"
+          id="coverLetter"
+          minlength="100"
+          maxlength="2000"
+          placeholder="Tell us why you're a great fit... (100-1000 characters)"
+        ></textarea>
+
+        <br />
+        <label for="">
+          <input type="checkbox" name="consent" required />
+          <p class="hint">
+            I confirm that all information provided is accurate *
+          </p>
+        </label>
+      </fieldset>
+
+      <button type="submit">Submit Application</button>
+      <button type="reset">Clear Form</button>
+    </form>
+  </body>
+</html>
