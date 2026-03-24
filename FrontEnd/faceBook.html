@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .main {
+        display: block;
+        height: 91.5vh;
+        border-bottom: 2px solid rgb(231, 228, 228);
+        width: 100vw;
+      }
+      .footer {
+        height: 8%;
+        text-align: center;
+        margin: 5px;
+        margin-top: 22px;
+        /* padding: 10px; */
+      }
+      a {
+        margin: 5px;
+        margin-left: 15px;
+        text-decoration: none;
+        color: grey;
+      }
+
+      .left {
+        height: 100%;
+        width: 53.5%;
+        border-right: 2px solid rgb(231, 228, 228);
+        position: relative;
+      }
+      .image {
+        position: absolute;
+        right: 0%;
+        top: 10%;
+      }
+      .icon {
+        position: absolute;
+        top: 45px;
+        left: 45px;
+      }
+      .text {
+        position: absolute;
+        top: 58%;
+        margin-left: 35px;
+      }
+      h2 {
+        font-size: 55px;
+        font-weight: 550;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .left,
+      .right {
+        display: inline-block;
+      }
+      .right {
+        position: absolute;
+        padding: 11% 45px;
+      }
+      form > * {
+        width: 92%;
+        margin: 9px;
+        font-weight: 230;
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      input {
+        padding: 15px;
+        border-radius: 14px;
+        border: 2px solid rgb(231, 228, 228);
+      }
+      .submit {
+        border: none;
+        padding: 10px;
+        border-radius: 20px;
+      }
+      .forgot {
+        border: none;
+        background-color: white;
+        padding: 10px;
+      }
+      .forgot:hover {
+        background-color: rgb(236, 235, 235);
+        border: none;
+        border-radius: 20px;
+      }
+      #newacc {
+        border: 1px solid #0064e0;
+        color: #0064e0;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 20px;
+      }
+      #newacc:hover {
+        background-color: rgb(236, 235, 235);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="left">
+        <!-- Main Image -->
+        <div class="icon">
+          <img
+            src="./facebook-logo_svgstack_com_50221774261504.svg"
+            height="55px"
+            width="55px"
+            alt=""
+          />
+        </div>
+        <div class="image">
+          <img
+            src="https://static.xx.fbcdn.net/rsrc.php/y0/r/U45qBJmWVHU.webp"
+            alt=""
+            height="560px"
+            width="auto"
+          />
+        </div>
+        <div class="text">
+          <h2>
+            Explore <br />
+            the <br />things <br />
+            <span style="color: #0064e0">you love</span>.
+          </h2>
+        </div>
+      </div>
+      <div class="right">
+        <form>
+          <h3>Log in to Facebook</h3>
+          <input type="text" placeholder="Email address or mobile number" />
+          <input type="password" placeholder="Password" />
+
+          <button
+            class="submit"
+            type="submit"
+            style="background-color: #0064e0; color: white"
+          >
+            Log in
+          </button>
+          <button class="forgot">Forgotten Password</button>
+          <br />
+          <br />
+          <button id="newacc">Create new account</button>
+        </form>
+      </div>
+    </div>
+    <footer>
+      <div class="footer">
+        <a href=""> English (UK)</a>
+        <a href="">हिन्दी</a>
+        <a href="">ਪੰਜਾਬੀ</a>
+        <a href="">বাংলা</a>
+        <a href="">ગુજરાતી</a>
+        <a href="">मराठी</a>
+        <a href="">More languages…</a>
+      </div>
+    </footer>
+  </body>
+</html>

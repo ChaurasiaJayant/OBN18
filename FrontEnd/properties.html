@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        font-family:
+          "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+      body {
+        background-color: rgb(89, 132, 23);
+      }
+      h1 {
+        color: yellow;
+      }
+      .box {
+        background-color: rgb(151, 245, 80);
+        padding: 20px;
+        margin: 5px;
+        border-radius: 0 40px 0 40px;
+        border: 5px solid rgb(99, 198, 99);
+      }
+      .box2 {
+        display: inline-block;
+        background-color: #e36b6b;
+        width: 48%;
+        padding: 2px;
+      }
+      .box3 {
+        display: inline-block;
+        background-color: #e36b6b;
+        width: 48%;
+        padding: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Display Properties</h1>
+    <div class="box">
+      <span
+        >Display properties controls how an element participates in the
+        layout</span
+      >
+      <ul>
+        <li>
+          BLOCK : tales full width,stack vertically
+          <!-- p,div,h1-h6,section,header,pre, -->
+        </li>
+        <li>
+          INLINE : only as wide as content,flows with the text
+          <!-- span,b,em,a,link -->
+        </li>
+        <li>INLINE-BLOCK : inline flow but accepts height/width</li>
+        <li>NONE</li>
+      </ul>
+    </div>
+    <br />
+
+    <div class="box2">Hello</div>
+    <div class="box3">World</div>
+  </body>
+</html>
