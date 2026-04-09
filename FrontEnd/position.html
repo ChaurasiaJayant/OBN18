@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .one {
+        display: inline-block;
+        padding: 5px;
+        border-radius: 10px;
+        border: 10px solid greenyellow;
+        position: relative;
+        left: 90px;
+      }
+
+      .fixed {
+        z-index: 10;
+        background: #fbcc3f;
+        background: linear-gradient(
+          183deg,
+          rgba(251, 204, 63, 1) 0%,
+          rgba(252, 70, 107, 1) 100%
+        );
+        padding: 10px;
+        border-radius: 50%;
+        width: 20px;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+      }
+
+      .parent {
+        margin-top: 10px;
+        position: relative;
+      }
+      .child {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        /* color: white; */
+        border-radius: 50%;
+        background: #fbcc3f;
+        background: linear-gradient(
+          183deg,
+          rgba(251, 204, 63, 1) 0%,
+          rgba(252, 70, 107, 1) 100%
+        );
+        font-size: 25px;
+        height: auto;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        border: 5px solid rgb(238, 160, 160);
+        border-radius: 10px;
+      }
+      .two {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: #fbe53f;
+        background: radial-gradient(
+          circle,
+          rgba(251, 229, 63, 1) 0%,
+          rgba(252, 70, 107, 1) 100%
+        );
+        padding: 10px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Positions</h1>
+    <p>This is an interactive session where i'm practicing CSS positioning.</p>
+
+    <!-- Relative -->
+    <div class="one"><span>This div has position : relative</span></div>
+
+    <!-- fixed -->
+    <div class="fixed">Hi!</div>
+
+    <!-- Absolute -->
+    <div class="parent">
+      <img
+        src="https://images.pexels.com/photos/28895466/pexels-photo-28895466.jpeg"
+        alt="No image"
+      />
+      <div class="child"><i>Sale</i></div>
+      <div class="two">Hurry Up!!</div>
+    </div>
+  </body>
+</html>

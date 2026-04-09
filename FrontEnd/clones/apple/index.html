@@ -6,14 +6,64 @@
     <title>Apple</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="./apple-logo-svgrepo-com.svg" />
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+/>
   </head>
   <body>
     <!-- NAVBAR -->
-    <nav>
+    <!-- <nav>
       <div class="logo"></div>
       <div class="links"></div>
       <div class="right"></div>
-    </nav>
+    </nav> -->
+
+    <nav class="navbar">
+  <div class="nav-container">
+
+    <!-- Left (mobile hamburger) -->
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon">
+      <span></span>
+      <span></span>
+    </label>
+
+    <!-- Apple logo -->
+    <div class="logo">
+      <svg fill="#000000" width="18px" height="64px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"></path> </g></svg>
+    </div>
+
+    <!-- Links -->
+    <ul class="links">
+      <li>Store</li>
+      <li>Mac</li>
+      <li>iPad</li>
+      <li>iPhone</li>
+      <li>Watch</li>
+      <li>AirPods</li>
+      <li>TV & Home</li>
+      <li>Entertainment</li>
+      <li>Accessories</li>
+      <li>Support</li>
+    </ul>
+
+    <!-- Right icons -->
+    <div class="right">
+      <!-- Search -->
+      <svg height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M10 18a8 8 0 1 1 5.3-14l5.4 5.4-1.4 1.4-5.4-5.4A6 6 0 1 0 10 16a5.9 5.9 0 0 0 3.7-1.3l1.4 1.4A8 8 0 0 1 10 18z"/>
+      </svg>
+
+      <!-- Bag -->
+      <svg height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M6 7V6a6 6 0 1 1 12 0v1h2v14H4V7h2zm2 0h8V6a4 4 0 1 0-8 0v1z"/>
+      </svg>
+    </div>
+
+  </div>
+</nav>
+
 
     <!-- <div class="tagline">
       Get up to 6 months of No Cost EMI* plus up to ₹10000 instant cashback‡ on
@@ -70,6 +120,7 @@
       <div class="content-part">
         <div class="title">
           <img
+           class="watch"
             src="https://www.apple.com/v/home/cm/images/logos/apple-watch-series-11/hero_logo_apple_watch_series_11__d7d7nh53wq2q_medium_2x.png"
             alt=""
           />
@@ -101,6 +152,7 @@
         <div class="content-part">
           <div class="title">
             <img
+             class="watch"
               src="https://www.apple.com/v/home/cm/images/logos/ipad-air-m4/promo_logo_ipad_air__cxpnwthgj5yu_medium_2x.png"
               alt=""
             />
@@ -210,6 +262,7 @@
         <div class="content-part">
           <div class="title">
             <img
+            class="watch"
               src="https://www.apple.com/v/home/cm/images/logos/apple-watch-ultra-3/promo_logo_apple_watch_ultra3_preorder__cjjbcy4rmg76_medium_2x.png"
               alt=""
             />
@@ -238,14 +291,15 @@
         <div class="content-part">
           <div class="title">
             <img
+             class="watch"
               src="https://www.apple.com/v/home/cm/images/logos/iphone-tradein/promo_logo_iphone_tradein__7y3gtai5az66_medium_2x.png"
               alt=""
             />
           </div>
           <div class="subtitle">Now with M5,M5 Pro and M5 Max.</div>
           <div class="cta-buttons">
-            <div class="learn-more"><button>Learn More</button></div>
-            <div class="shop-iphone">Buy</div>
+            <div class="learn-more"><button>Get your estimate</button></div>
+            
           </div>
         </div>
         <div class="image-wrapper" style="z-index: -10">
@@ -263,6 +317,66 @@
         </div>
       </div>
     </div>
+
+         <div class="carousel_section">
+        <h2>Endless Entertainment</h2>
+        <div class="marquee_track">
+            <div class="single_banner">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/HntOU0HJBFL_Tp0fasZQtQ/1250x668sr.jpg" height="100%" width="100%" >
+        </div>
+        <div class="single_banner">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/HntOU0HJBFL_Tp0fasZQtQ/1250x668sr.jpg" height="100%" width="100%" >
+        </div><div class="single_banner">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/HntOU0HJBFL_Tp0fasZQtQ/1250x668sr.jpg" height="100%" width="100%" >
+        </div><div class="single_banner">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/HntOU0HJBFL_Tp0fasZQtQ/1250x668sr.jpg" height="100%" width="100%" >
+        </div><div class="single_banner">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/HntOU0HJBFL_Tp0fasZQtQ/1250x668sr.jpg" height="100%" width="100%" >
+        </div><div class="single_banner">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/HntOU0HJBFL_Tp0fasZQtQ/1250x668sr.jpg" height="100%" width="100%" >
+        </div><div class="single_banner">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/HntOU0HJBFL_Tp0fasZQtQ/1250x668sr.jpg" height="100%" width="100%" >
+        </div><div class="single_banner">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/HntOU0HJBFL_Tp0fasZQtQ/1250x668sr.jpg" height="100%" width="100%" >
+        </div>
+        </div>
+            
+        </div>
+     
+
+     <div class="second_swiper">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/HntOU0HJBFL_Tp0fasZQtQ/1250x668sr.jpg" height="100%" width="100%">
+              </div>
+              <div class="swiper-slide">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/HntOU0HJBFL_Tp0fasZQtQ/1250x668sr.jpg" height="100%" width="100%">
+              </div>
+              <div class="swiper-slide">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/HntOU0HJBFL_Tp0fasZQtQ/1250x668sr.jpg" height="100%" width="100%">
+              </div>
+              <div class="swiper-slide">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/HntOU0HJBFL_Tp0fasZQtQ/1250x668sr.jpg" height="100%" width="100%">
+              </div>
+              <div class="swiper-slide">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/HntOU0HJBFL_Tp0fasZQtQ/1250x668sr.jpg" height="100%" width="100%">
+              </div>
+              <div class="swiper-slide">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/HntOU0HJBFL_Tp0fasZQtQ/1250x668sr.jpg" height="100%" width="100%">
+              </div>
+              <div class="swiper-slide">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/HntOU0HJBFL_Tp0fasZQtQ/1250x668sr.jpg" height="100%" width="100%">
+              </div>
+
+
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          
+     </div>
+
+     </div></div>
 
     <!-- Footer -->
     <footer>
@@ -394,5 +508,23 @@
           </div>
       </div>
     </footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+     <script>
+        var swiper = new Swiper(".mySwiper", {
+          spaceBetween: 30,
+          autoplay:{
+                delay:5000
+            },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            
+          },
+          speed:2000
+        });
+      </script>   
   </body>
 </html>
