@@ -1,53 +1,70 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>Document</title>
   </head>
-  <body class="min-h-screen bg-slate-200 text-slate-800">
-    <div
-      class="w-2xl bg-white mx-auto px-4 py-7 border-2 border-slate-800 rounded-2xl my-10 flex-column justify-content-left align-items-center"
-    >
-      <h1 class="text-3xl">Tailwind CSS</h1>
-      <p class="text-xl mt-5 py-3">
-        Tailwind is a utility-first CSS framework that lets you build custom
-        designs by composing small,purpose driven classes directly in the HTML.
-      </p>
+  <body>
+    <h1 class="text-[100px]">Tailwind notes</h1>
+    <h2 class="text-2xl">Common Units</h2>
+    <ul class="bg-slate-300 p-1 w-2/3">
+      <li>0= m-0, p-0, w-0</li>
+      <li class="text-[50px]">px = p-[100px]</li>
+      <li>Numeric Scale: p-4, m-6, in terms of rem -> p-1 = p[0.25rem]</li>
+      <li>Keywords: w-full, h-screen, max-w-sm, min-h-full</li>
+      <li>
+        Fractions: w-1/2, this is fraction of the parent or percentage as we use
+        in css
+      </li>
+    </ul>
+
+    <!-- half with box with fixed height and spacing 
+     -->
+    <div class="bg-blue-300 w-1/2 h-16 rounded-[10px]">Hello world</div>
+
+    <div class="w-full bg-slate-400 max-w-[200px] h-128 p-32">
+      Full width box, but 200px max width with 32rem height and 8rem padding
     </div>
 
-    <div
-      class="w-2xl bg-white mx-auto px-4 py-7 border-2 border-slate-800 rounded-2xl my-10 flex-column justify-content-left align-items-center"
-    >
-      <h1 class="text-3xl">Why do we use tailwind ??</h1>
-      <p class="text-xl mt-5 py-3"></p>
+    <!-- div in rem -->
+    <div class="bg-blue-500 w-[10rem] h-[5rem] p-[2rem] m-[3rem]">
+      Hello bhai
     </div>
 
-    <div
-      class="border-2 p-6 gap-2 rounded-2xl mx-10 w-lg flex flex-wrap justify-center"
-    >
-      <div class="bg-red-800 w-40 rounded h-40">Box 1</div>
-      <div class="bg-red-800 w-40 rounded h-40">Box 2</div>
-      <div class="bg-red-800 w-40 rounded h-40">Box 3</div>
-      <div class="bg-red-800 w-40 rounded h-40">Box 4</div>
-      <div class="bg-red-800 w-40 rounded h-40">Box 5</div>
-      <div class="bg-red-800 w-40 rounded h-40">Box 6</div>
-    </div>
+    <!-- div in pointers -->
+    <div class="bg-blue-500 w-40 h-20 p-8 m-12">Hello bhai in tailwind</div>
 
-    <div class="w-full max-w-[200px] p-2 h-[32rem] bg-green-400">
-      <h1>hello</h1>
-    </div>
+    <h2>Spacing and sizing</h2>
+    <h4>Padding</h4>
+    <ul class="ps-[100px]">
+      <li>p-* = padding for all sides</li>
+      <li>px-* = padding for x axis i.e. left and right</li>
+      <li>py-* = padding for y axis i.e. top and bottom</li>
+      <li>pt-*, pb-*, pr-*, pl-* -> top, bottom, right, left</li>
+      <li>ps=*, pe-* = padding start, and padding end</li>
+    </ul>
 
-    <div class="bg-blue-500 w-[10rem] h-[5rem] p-[2rem] m-[3rem]"></div>
-    <div class="bg-blue-500 w-40 h-20 m-8 p-12">Hello World</div>
+    <!-- padding 10px on all sides -->
+    <div class="bg-red-100 p-[10px] w-sm">Padding example</div>
+    <!-- padding 10 pixels on top and bottom -->
+    <div class="bg-red-100 py-[10px] w-sm">Padding example</div>
 
-    <div class="bg-red-500 p-[10px] w-sm">Padding Example</div>
-    <div class="bg-violet-500 pt-10 pb-10 w-sm">Padding Example</div>
-    <div class="bg-blue-500 pt-[10px] pb-[10px] pr-[20px] pl-[20px] w-sm">
-      Padding Example
-    </div>
-    <div class="bg-yellow-500 pt-[10px] pb-[10px] pl-[10px] pr-[20px] w-sm">
-      Padding Example
-    </div>
+    <!-- padding 10px on top and bottom and 20px on left and right -->
+    <div class="bg-red-100 py-[10px] px-[20px] w-sm">Padding example</div>
+
+    <!-- padidng top, bottom, left,= 10px right = 20px -->
+    <div class="bg-red-100 py-[10px] pl-[40px] w-sm">Padding example</div>
+
+    <h3>Margins</h3>
+    <ul>
+      <li>m-* for all sides</li>
+      <li>my-*, m-x*</li>
+      <li>mt-*, mb-*, ml-*, mr-*</li>
+      <li>-mt-*, -mx-* : negative margin value</li>
+      <li>mx-auto for horizontal centering of block elements</li>
+    </ul>
   </body>
 </html>
