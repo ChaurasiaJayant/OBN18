@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      #main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #333;
+        height: 100vh;
+        width: 100vw;
+      }
+      h1 {
+        color: #555;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15rem;
+        font-weight: 40;
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <h1>Hello!!</h1>
+
+    <input type="text" placeholder="name" name="" id="" />
+    <h3>Select your device</h3>
+
+    <select name="" id="">
+      <option selected disabled value="">Choose your device</option>
+      <option value="samsung">samsung</option>
+      <option value="oppo">oppo</option>
+      <option value="vivo">vivo</option>
+      <option value="iphone">iphone</option>
+      <option value="lava">lava</option>
+    </select> -->
+
+    <div id="main">
+      <h1>a</h1>
+    </div>
+
+    <script>
+      //   const h1 = document.querySelector("h1");
+      //   h1.addEventListener("click", () => {
+      //     h1.innerText = "chala jaa bhsdk";
+      //     document.querySelector("body").style.backgroundColor = "red";
+      //     h1.style.color = "yellow";
+      //   });
+
+      //   const input = document.querySelector("input");
+      //   input.addEventListener("input", (e) => {
+      //     if (e.data !== null) {
+      //       console.log(e.data);
+      //     }
+      //   });
+
+      //   const sel = document.querySelector("select");
+      //   const h3 = document.querySelector("h3");
+
+      //   sel.addEventListener("input", () => {
+      //     console.log(sel.value);
+      //     h3.textContent = ` Device : ${sel.value}`;
+      //   });
+
+      const h1 = document.querySelector("h1");
+
+      window.addEventListener("keydown", (event) => {
+        if (event.key === " ") {
+          h1.textContent = "SPC";
+        } else {
+          h1.textContent = event.key;
+        }
+      });
+    </script>
+  </body>
+</html>

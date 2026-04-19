@@ -1,0 +1,10 @@
+DOM is a programming interface that represents the structure of a web document as a tree of objects 
+in browser memory, allowing scripts to access and manipulate it dynamically.
+
+
+Browser console commands
+
+1. querySelector('') :: this is the code used for selecting any element, it is through class or id or tagName. 
+   -- $0 for getting the current inspected element
+
+   
