@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>task to be done</h1>
+    <input type="text" name="" id="todo-input" placeholder="Add a task" />
+    <button id="add-btn">Add Task</button>
+    <ul id="todo-list"></ul>
+
+    <script>
+      const input = document.querySelector("#todo-input");
+      const addBtn = document.querySelector("#add-btn");
+      const list = document.getElementById("todo-list");
+
+      addBtn.addEventListener("click", () => {
+        const task = input.value;
+
+        if (task.length == 0) {
+          return;
+        }
+
+        // list.innerHTML = `<li>${task}</li>`;
+        // This will not work because it will overwrite the previous task
+
+        const li = document.createElement("li");
+        li.innerText = task;
+        list.appendChild(li);
+
+        input.value = "";
+      });
+
+      input.addEventListener("keyup", (e) => {
+        if (e.key !== "Enter") return;
+
+        const task = input.value;
+
+        if (task.length == 0) {
+          return;
+        }
+
+        const li = document.createElement("li");
+        li.innerText = task;
+        list.appendChild(li);
+
+        input.value = "";
+      });
+
+      //   const lis = document.querySelector('li')
+      list.addEventListener("click", (e) => {
+        // console.log(e.srcElement.innerText);
+        e.srcElement.style.backgroundColor = "green";
+      });
+
+      list.addEventListener("dblclick", (e) => {
+        // console.log(e.srcElement.innerText);
+        e.srcElement.style.textDecoration = "line-through";
+        e.srcElement.style.backgroundColor = "red";
+      });
+    </script>
+  </body>
+</html>

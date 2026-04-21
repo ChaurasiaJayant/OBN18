@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Counter</h1>
+    <h3></h3>
+
+    <button class="inc">++</button>
+    <button class="dec">--</button>
+
+    <script>
+      let counter = 0;
+      const h3 = document.querySelector("h3");
+      h3.textContent = counter;
+
+      const plus = document.querySelector(".inc");
+      const minus = document.querySelector(".dec");
+
+      plus.addEventListener("click", () => {
+        counter++;
+        h3.textContent = counter;
+      });
+
+      minus.addEventListener("click", () => {
+        counter--;
+        h3.textContent = counter;
+      });
+    </script>
+  </body>
+</html>

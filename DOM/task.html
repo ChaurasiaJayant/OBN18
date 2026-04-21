@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ul {
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>Samsung</li>
+      <li>Vivo</li>
+      <li>Lava</li>
+    </ul>
+
+    <script>
+      const lis = document.querySelectorAll("li");
+
+      lis.forEach((e) => {
+        e.style.backgroundColor = "red";
+      });
+    </script>
+  </body>
+</html>
