@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="#">
+      <label for="name">Name : </label>
+      <input type="text" placeholder="Enter Your Name" id="name" />
+      <label for="age">Age :</label>
+      <input type="number" placeholder="Enter Your Age" id="age" />
+      <label for="email">Email :</label>
+      <input type="email" placeholder="Enter Your Email" id="mail" />
+      <label for="Phone">Phone :</label>
+      <input type="tel" placeholder="Enter Your Phone Number" id="tel" />
+      <button id="submit">Submit</button>
+    </form>
+
+    <script>
+      const name = document.querySelector("#name");
+      const age = document.querySelector("#age");
+      const email = document.querySelector("#mail");
+      const tel = document.querySelector("#tel");
+      const btn = document.querySelector("#submit");
+
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.alert(
+          `Your name is ${name.value} \n  Your age is ${age.value}  \nYour email goes like ${email.value} \n Your contact number is ${tel.value}`,
+        );
+      });
+    </script>
+  </body>
+</html>

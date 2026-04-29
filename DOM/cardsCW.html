@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Manager</title>
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family:
+          "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #b5e1eb;
+        padding: 10%;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+
+      .panel {
+        background-color: #fff;
+        border-radius: 30px;
+        border: 2px solid rgb(201, 192, 192);
+        display: flex;
+        min-height: 150px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-width: 200px;
+        padding: 15px;
+      }
+      .field {
+        color: grey;
+        display: flex;
+        flex-direction: column;
+      }
+
+      input,
+      textarea {
+        background-color: #ded9d9;
+        border: none;
+        padding: 5px;
+        border-radius: 10px;
+      }
+      #addbtn {
+        background-color: #9f45e9;
+        border: none;
+        padding: 7px;
+        color: white;
+        border-radius: 12px;
+      }
+
+      .container {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        min-height: 20vh;
+        width: 100%;
+        border-radius: 20px;
+        margin-top: 20px;
+        /* background-color: red; */
+        padding: 10px;
+      }
+      .card {
+        background-color: #fff;
+        padding: 10px;
+        width: 32%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border: 2px solid grey;
+        border-radius: 20px;
+      }
+
+      .img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        background-color: aqua;
+      }
+
+      .card h3 {
+        font-size: 1.5rem;
+        color: black;
+        font-weight: 8000;
+      }
+
+      .edit,
+      .delete {
+        padding: 8px;
+        border-radius: 5px;
+        border: none;
+      }
+      .edit {
+        background-color: rgba(221, 106, 221, 0.433);
+        color: rgb(174, 0, 174);
+      }
+
+      .delete {
+        background-color: rgba(182, 0, 0, 0.246);
+        color: rgb(249, 0, 0);
+      }
+      .role {
+        padding: 5px 10px;
+        border-radius: 16px;
+        color: white;
+      }
+      .buttons {
+        display: flex;
+        gap: 10px;
+      }
+      .savebtn {
+        padding: 5px;
+        background-color: green;
+        border-radius: 5px;
+        border: 1px solid green;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Jayant's Team Manager</h1>
+    <!-- form -->
+    <div class="panel">
+      <div class="field">
+        <label for="nameInput">Name</label>
+        <input type="text" id="nameInput" placeholder="John Doe" />
+      </div>
+      <div class="field">
+        <label for="roleInput">Role</label>
+        <input type="text" id="roleInput" placeholder="Designer" />
+      </div>
+      <div class="field">
+        <label for="bioInput">Bio</label>
+        <textarea
+          id="bioInput"
+          rows="2"
+          cols="22"
+          placeholder="Short bio..."
+        ></textarea>
+      </div>
+      <div class="field">
+        <label for="colorInput">Badge Color</label>
+        <input type="color" id="colorInput" />
+      </div>
+      <button id="addbtn" onclick="addCard()">+ Add Card</button>
+    </div>
+
+    <div class="container">
+      <!-- <div class="card">
+        <div class="img">img</div>
+        <h3 class="name">jynt</h3>
+        <p class="role">dev</p>
+        <p class="bio">no bio</p>
+        <div class="buttons">
+          <button class="edit">Edit</button>
+          <button class="delete">Delete</button>
+        </div>
+      </div> -->
+    </div>
+
+    <script>
+      let container = document.querySelector(".container");
+      function addCard() {
+        // User input
+        let name = document.querySelector("#nameInput").value;
+        let role = document.querySelector("#roleInput").value;
+        let bio = document.querySelector("#bioInput").value;
+        let color = document.querySelector("#colorInput").value;
+
+        // create new card
+        let card = document.createElement("div");
+        card.classList.add("card");
+
+        var avatarUrl = "https://i.pravatar.cc/100?img=10";
+        let img = document.createElement("img");
+        img.src = avatarUrl;
+
+        let nameTag = document.createElement("h3");
+        nameTag.textContent = name;
+
+        let roleTag = document.createElement("p");
+        roleTag.classList.add("role");
+        roleTag.style.backgroundColor = color;
+        roleTag.textContent = role;
+
+        let bioTag = document.createElement("p");
+        bioTag.textContent = bio;
+
+        let actionBtn = document.createElement("div");
+        actionBtn.classList.add("buttons");
+
+        // edit button
+        let editBtn = document.createElement("button");
+        editBtn.classList.add("edit");
+        editBtn.textContent = "Edit";
+
+        editBtn.onclick = function () {
+          editCard(card, nameTag, bioTag, roleTag, color, editBtn);
+        };
+
+        let deleteBtn = document.createElement("button");
+        deleteBtn.classList.add("delete");
+        deleteBtn.textContent = "Delete";
+
+        deleteBtn.onclick = function () {
+          deleteCard(card);
+        };
+
+        actionBtn.appendChild(editBtn);
+        actionBtn.appendChild(deleteBtn);
+        card.appendChild(img);
+        card.appendChild(nameTag);
+        card.appendChild(roleTag);
+        card.appendChild(bioTag);
+        card.appendChild(actionBtn);
+
+        container.appendChild(card);
+      }
+
+      function deleteCard(card) {
+        card.remove();
+      }
+
+      function editCard(card, nameTag, bioTag, roleTag, color, editBtn) {
+        var nameInput = document.createElement("input");
+        nameInput.classList.add("editInput");
+        nameInput.type = "text";
+        nameInput.value = nameTag.textContent;
+
+        var roleInput = document.createElement("input");
+        roleInput.type = "text";
+        roleInput.classList.add("editInput");
+        roleInput.value = roleTag.textContent;
+
+        var bioInput = document.createElement("textarea");
+        bioInput.type = "textarea";
+        bioInput.classList.add("textarea");
+        bioInput.value = bioTag.textContent;
+
+        nameTag.replaceWith(nameInput);
+        roleTag.replaceWith(roleInput);
+        bioTag.replaceWith(bioInput);
+
+        // save button
+        const saveBtn = document.createElement("button");
+        saveBtn.classList.add("savebtn");
+        saveBtn.innerText = "Save";
+        saveBtn.onclick = function () {
+          saveCard(card, nameInput, roleInput, roleTag, nameTag, editBtn);
+        };
+        editBtn.replaceWith(saveBtn);
+      }
+
+      function saveCard(card, nameInput, roleInput, nameTag, roleTag, editBtn) {
+        let newName = nameInput.value;
+        nameTag.innerText = newName;
+
+        let newRole = roleInput.value;
+        roleTag.innerText = newRole;
+
+        // Doubt
+        nameInput.replaceWith(nameTag);
+        roleInput.replaceWith(roleTag);
+
+        const saveBtn = document.querySelector(".savebtn");
+        saveBtn.replaceWith(editBtn);
+      }
+    </script>
+  </body>
+</html>
