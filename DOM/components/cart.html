@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+  </head>
+  <body>
+    <h1>Ecomm Cart Component</h1>
+    <form action="" id="product-form">
+      <label>Name</label>
+      <input type="text" placeholder="Product name" id="name" />
+      <label>Quantity</label>
+      <input type="number" id="quantity" />
+      <label>Price</label>
+      <input type="number" id="price" />
+      <button id="add">Add to cart</button>
+    </form>
+
+    <table id="products">
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+      <tfoot>
+        <td></td>
+        <td>Total</td>
+        <td class="finalPrice"></td>
+      </tfoot>
+    </table>
+
+    <script>
+      let total = 0;
+      let table = document.querySelector("#products");
+      let submitBtn = document.getElementById("add");
+      let finalPrice = document.querySelector(".finalPrice");
+
+      submitBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        let name = document.getElementById("name").value;
+        let qty = document.querySelector("#quantity").value;
+        let price = document.querySelector("#price").value;
+        total += parseInt(qty) * parseInt(price);
+
+        let row = document.createElement("tr");
+        row.innerHTML = `<td>${name}</td> <td>${qty}</td> <td>${price * qty}</td>`;
+
+        table.appendChild(row);
+        finalPrice.innerText = total;
+      });
+    </script>
+  </body>
+</html>

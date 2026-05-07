@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      input {
+        width: 60%;
+        padding: 10px;
+        border: 2px solid grey;
+        border-radius: 10px;
+      }
+
+      button {
+        padding: 10px;
+        margin: 0 10px;
+        background-color: coral;
+        border: none;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#" id="signupform">
+      <label for="name">First Name : </label>
+      <input
+        type="text"
+        placeholder="Enter your first name"
+        id="firstname "
+        required
+        minlength="3"
+        maxlength="30"
+      />
+
+      <label for="name">Last Name : </label>
+      <input
+        type="text"
+        placeholder="Enter your last name"
+        id="lastname"
+        required
+        minlength="3"
+        maxlength="30"
+      />
+
+      <label for="mail">Email : </label>
+      <input type="email" placeholder="Enter your email" id="mail" required />
+
+      <label for="password">Password : </label>
+      <input type="password" placeholder="Enter your password" id="password" />
+
+      <label for="dob">Date of birth : </label>
+      <input type="date" id="dob" />
+
+      <label for="gender">Gender</label>
+      <div class="gender-box">
+        <label>
+          <input type="radio" name="gender" value="male" id="" />Male
+        </label>
+        <label>
+          <input type="radio" name="gender" value="female" id="" />Female
+        </label>
+      </div>
+
+      <label for="phone">Phone : </label>
+      <input type="tel" name="" id="phone" />
+
+      <button>Submit</button>
+    </form>
+
+    <script>
+      const signupform = document.getElementById("signupform");
+
+      signupform.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const firstName = document.getElementById("firstname").value.trim();
+        const lastName = document.getElementById("lastname").value.trim();
+
+        const email = document.getElementById("mail").value.trim();
+        const passsword = document.getElementById("password").value.trim();
+        const dob = document.getElementById("dob").value.trim();
+        // const gender = document.querySelector("input[name ="gender"]:checked")
+
+        // username check length for <3 and >30
+            if(!usernameValid(username)){
+
+            }
+
+            // email should not be a public mail
+      });
+
+      function usernameValid(val){
+        let result = false
+        for(let i = 0;i<val.length;i++){
+            let character = val[i]
+
+            if(!NaN(character)){
+                result = true
+            }
+        }
+      }
+
+      function validEmail(email){
+        if(email.includes(email)){
+            isValid = false
+        }
+
+        function validPass(password){
+            if(password == ''){
+                return false
+            }
+
+            if(password.length<6){
+                return false
+            }
+            if(password.includes(" ")){
+                return false
+            }
+        }
+      }
+    </script>
+  </body>
+</html>
