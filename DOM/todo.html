@@ -23,9 +23,6 @@
           return;
         }
 
-        // list.innerHTML = `<li>${task}</li>`;
-        // This will not work because it will overwrite the previous task
-
         const li = document.createElement("li");
         li.innerText = task;
         list.appendChild(li);
@@ -49,9 +46,7 @@
         input.value = "";
       });
 
-      //   const lis = document.querySelector('li')
       list.addEventListener("click", (e) => {
-        // console.log(e.srcElement.innerText);
         e.srcElement.style.backgroundColor = "green";
       });
 

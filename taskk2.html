@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task</title>
+  </head>
+  <body>
+    <form action="#">
+      <input type="text" placeholder="Enter your name" id="name" />
+      <input type="number" placeholder="Enter your age" id="age" />
+      <button onclick="AddStudent()">Add Student</button>
+
+      <ul id="list"></ul>
+    </form>
+
+    <script>
+      class Student {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+      }
+
+      class StudentManager {
+        constructor() {
+          this.students = [];
+        }
+
+        addStudents(newStudent) {
+          this.students.push(newStudent);
+        }
+
+        display() {
+          this.students.forEach((student) => {
+            let list = document.getElementById("list");
+            let li = document.createElement("li");
+            li.innerHTML = `<li>${student.name} - ${student.age}</li>`;
+            list.appendChild(li);
+          });
+        }
+      }
+
+      const addbtn = document.getElementById("addbtn");
+
+      function AddStudent() {
+        let name = document.getElementById("name");
+        let age = document.getElementById("age");
+
+        const newStudent = new Student(name.value, age.value);
+
+        StudentManager.addStudents(newStudent);
+        StudentManager.display();
+      }
+    </script>
+  </body>
+</html>

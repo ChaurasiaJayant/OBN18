@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>To-Do List</h1>
+    <input type="text" id="taskInput" placeholder="Enter a new task" />
+    <button id="addbtn">Add Task</button>
+    <ul id="taskList">
+      <li>Simple task</li>
+    </ul>
+
+    <script>
+      const taskInput = document.getElementById("taskInput");
+      const addbtn = document.getElementById("addbtn");
+
+      const taskList = document.getElementById("taskList");
+
+      let tasks = [];
+
+      addbtn.onclick = () => {
+        const value = taskInput.value.trim();
+
+        if (!value) return;
+        addElement(value);
+      };
+
+      function addElement(value) {
+        const li = document.createElement("li");
+        li.innerText = value;
+        taskList.appendChild(li);
+
+        tasks.push(value);
+        saveTasks();
+      }
+
+      function saveTasks() {
+        const stringg = tasks.join("$");
+        console.log(stringg);
+      }
+
+      function loadTasks() {
+        const raw = localStorage.getItem("tasks");
+        if (raw) {
+          taska = raw.split("$");
+        } else {
+          tasks = [];
+        }
+        renderTasks();
+      }
+
+      function renderTasks() {
+        taskList.innerHTML = "";
+        tasks.forEach((task, index) => {
+          const li = document.createElement("li");
+          li.textContent = task;
+
+          taskList.appendChild(li);
+        });
+      }
+
+      loadTasks();
+    </script>
+  </body>
+</html>

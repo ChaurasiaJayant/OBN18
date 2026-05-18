@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        font-family: serif;
+        justify-content: center;
+      }
+      button {
+        padding: 10px;
+        border-radius: 10px;
+        margin: 10px;
+        width: 200px;
+      }
+
+      .light {
+        background-color: #fff;
+        color: black;
+      }
+      .dark {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="light">
+    <h1>Theme Switcher</h1>
+    <p>Click the buttons to toggle the theme</p>
+
+    <button id="lightbtn">Light Theme</button>
+    <button id="darkbtn">Dark Theme</button>
+
+    <script>
+      const body = document.body;
+      const h1 = document.querySelector("h1");
+      const p = document.querySelector("p");
+      const buttons = document.querySelector("button");
+
+      const lightbtn = document.getElementById("lightbtn");
+      const darkbtn = document.getElementById("darkbtn");
+
+      lightbtn.onclick = () => {
+        localStorage.setItem("theme", "light");
+        body.className = "light";
+        h1.className = "light";
+        p.className = "light";
+        buttons.className = "light";
+      };
+
+      darkbtn.onclick = () => {
+        localStorage.setItem("theme", "dark");
+
+        body.className = "dark";
+        h1.className = "dark";
+        p.className = "dark";
+        buttons.className = "dark";
+      };
+    </script>
+  </body>
+</html>
