@@ -64,3 +64,15 @@ function multiply(a, b) {
 }
 
 console.log(calculator(20, 4, add));
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+Person.prototype.hello = function () {
+  console.log("Hello " + this.name);
+};
+
+const jayant = new Person("jayant", 22);
+jayant.hello();

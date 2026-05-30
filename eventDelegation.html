@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .completed {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Todo App Using Event Delegation</h1>
+    <input type="text" name="" id="input" placeholder="Enter task" />
+    <button id="addbtn" onclick="addtask()">Add Task</button>
+    <ul id="list"></ul>
+
+    <script>
+      let list = document.getElementById("list");
+
+      function addtask() {
+        let input = document.getElementById("input").value;
+        let list = document.getElementById("list");
+
+        let li = document.createElement("li");
+        li.id = Date.now();
+        li.innerHTML = `<span> ${input} </span> <button class  = "completeBtn"> Completed </button> <button class  = "deleteBtn"> Delete </button>`;
+        list.appendChild(li);
+      }
+
+      list.addEventListener("click", () => {
+        if (event.target.classList.contains("deleteBtn")) {
+          event.target.parentElement.remove();
+        }
+
+        if (event.target.classList.contains("completeBtn")) {
+          event.target.parentElement
+            .querySelector("span")
+            .classList.toggle("completed");
+        }
+      });
+    </script>
+  </body>
+</html>

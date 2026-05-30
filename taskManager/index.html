@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Smart Task Manager</h1>
+    <input type="text" placeholder="Enter your task" id="title" />
+    <select name="priority" id="priority">
+      <option value="" disabled>--Select--</option>
+      <option value="important">Important</option>
+      <option value="veryImportant">Very Important</option>
+      <option value="urgent">Urgent</option>
+    </select>
+
+    <input type="date" id="dueDate" placeholder="Due Date" />
+    <button onclick="addTask()">Add task</button>
+    <ul id="taskList"></ul>
+
+    <script>
+      class Task {
+        constructor(title, priority, dueDate) {
+          this.id = Date.now();
+          this.title = title;
+          this.priority = priority;
+          this.dueDate = dueDate;
+        }
+
+        toggle() {
+          //
+        }
+      }
+
+      class TaskManager {
+        constructor() {
+          this.tasks = [];
+        }
+
+        add(task) {
+          this.tasks.push(task);
+        }
+
+        display() {
+          let list = document.getElementById("taskList");
+          list.innerHTML = "";
+
+          this.tasks.forEach((task) => {
+            let li = document.createElement("li");
+            li.innerHTML = `Task -${task.title} Priority-  ${task.priority} Due Date - ${task.dueDate} `;
+            list.appendChild(li);
+          });
+        }
+      }
+      let manager = new TaskManager();
+
+      function addTask() {
+        let title = document.getElementById("title").value;
+        let priority = document.getElementById("priority").value;
+        let dueDate = document.getElementById("dueDate").value;
+
+        let newTask = new Task(title, priority, dueDate);
+        manager.add(newTask);
+        manager.display();
+      }
+    </script>
+  </body>
+</html>

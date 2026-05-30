@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: white;
+      }
+
+      .stopwatch {
+        text-align: center;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+      }
+
+      .time {
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
+
+      button {
+        padding: 10px 15px;
+        margin: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="stopwatch">
+      <div class="time">
+        <span id="minutes">00</span> : <span id="seconds">00</span> :
+        <span id="milliseconds">00</span>
+      </div>
+
+      <button onclick="startWatch()">Start</button>
+      <button onclick="stopWatch()">Stop</button>
+      <button onclick="resetWatch()">Reset</button>
+    </div>
+
+    <script>
+      let minutes = document.getElementById("minutes");
+      let seconds = document.getElementById("seconds");
+      let milliSeconds = document.getElementById("milliseconds");
+      let mincount = 0;
+      let seccount = 0;
+      let milcount = 0;
+      let intervalId = null;
+
+      function startWatch() {
+        if (intervalId !== null) return;
+
+        intervalId = setInterval(() => {
+          milcount++;
+
+          if (milcount >= 100) {
+            seccount++;
+            milcount = 0;
+          }
+
+          if (seccount == 60) {
+            seccount = 0;
+            mincount++;
+          }
+
+          updateDisplay();
+        }, 10);
+      }
+
+      function stopWatch() {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+      function resetWatch() {
+        mincount = 0;
+        milcount = 0;
+        seccount = 0;
+        updateDisplay();
+        intervalId = null;
+      }
+      function updateDisplay() {
+        milliSeconds.textContent = milcount;
+        seconds.textContent = seccount;
+        minutes.textContent = mincount;
+      }
+    </script>
+  </body>
+</html>

@@ -17,6 +17,7 @@
     <script>
       class Student {
         constructor(name, age) {
+          this.id = Date.now();
           this.name = name;
           this.age = age;
         }
@@ -24,24 +25,43 @@
 
       class StudentManager {
         constructor() {
-          this.students = [];
+          this.students = JSON.parse(localStorage.getItem("studentss")) || [];
         }
 
-        addStudents(newStudent) {
-          this.students.push(newStudent);
+        addStudents(student) {
+          this.students.push(student);
+          this.save();
+        }
+
+        save() {
+          localStorage.setItem("studentss", JSON.stringify(this.students));
+        }
+
+        delete(id) {
+          this.students = this.students.filter((student) => student.id !== id);
+          this.save();
         }
 
         display() {
+          let list = document.getElementById("list");
+          list.innerHTML = "";
+
           this.students.forEach((student) => {
-            let list = document.getElementById("list");
             let li = document.createElement("li");
-            li.innerHTML = `<li>${student.name} - ${student.age}</li>`;
+            li.innerHTML = `${student.name} - ${student.age} <button onclick = "removeStudent(${student.id})">Delete</button>`;
             list.appendChild(li);
           });
         }
       }
 
-      const addbtn = document.getElementById("addbtn");
+      const manager = new StudentManager();
+
+      manager.display();
+
+      function removeStudent(id) {
+        manager.delete(id);
+        manager.display();
+      }
 
       function AddStudent() {
         let name = document.getElementById("name");
@@ -49,8 +69,9 @@
 
         const newStudent = new Student(name.value, age.value);
 
-        StudentManager.addStudents(newStudent);
-        StudentManager.display();
+        manager.addStudents(newStudent);
+        manager.display();
+        manager.save();
       }
     </script>
   </body>
