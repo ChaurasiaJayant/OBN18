@@ -37,4 +37,17 @@ function greet(city, country) {
   console.log(`${this.name} lives in ${city} which is in ${country}`);
 }
 
-greet.apply(personn, ["LKO", "IND"]);
+// greet.apply(personn, ["LKO", "IND"]);
+
+// bind
+const obj = {
+  name: "Jayant",
+};
+
+function show() {
+  console.log(this.name);
+}
+
+const fn = show.bind(obj);
+
+fn();

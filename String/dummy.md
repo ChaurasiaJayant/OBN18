@@ -63,3 +63,4 @@ for (let i = 0; i < arr.length; i++){
 if (arr[i] > 0) {
 console.log(String.fromCharCode(i) + " appears "+arr[i] + " times")
 }
+}

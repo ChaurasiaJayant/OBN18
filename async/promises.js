@@ -4,6 +4,9 @@
 //       return true;
 //     }
 
+const { error } = require("node:console");
+const { url } = require("node:inspector");
+
 //     if (idFind()) {
 //       resolve({
 //         amount: 500,
@@ -42,4 +45,42 @@ function outer() {
 }
 
 let out = outer();
-out();
+// out();
+
+let start = new Promise((resolve, reject) => {
+  if (mobileInput()) {
+    //here mobileInput will check whether the number is 10 digit or not if yes return true
+    resolve();
+  } else {
+    reject(error);
+  }
+});
+
+start
+  .then((data) => {
+    if (connectionSpeed()) return true;
+  })
+  .then(() => {
+    if (webCamAccess() == "success") return true;
+  })
+  .then(() => {
+    if (shareScreen() == "granted") return true;
+  })
+  .then(() => {
+    if (testStarted()) {
+      showQuestions();
+    }
+  })
+  .catch((err) => console.error(err));
+
+fetch("a")
+  .then((a) => fetch(url))
+  .then((b) => fetch(url))
+  .then((c) => console.log(c));
+
+async function getData() {
+  const a = await fetch(url);
+  const b = await fetch(url);
+  const c = await fetch(url);
+  console.log(c);
+}
