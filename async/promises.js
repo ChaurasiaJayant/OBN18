@@ -78,6 +78,8 @@ fetch("a")
   .then((b) => fetch(url))
   .then((c) => console.log(c));
 
+// convert the code  to async/await
+
 async function getData() {
   const a = await fetch(url);
   const b = await fetch(url);

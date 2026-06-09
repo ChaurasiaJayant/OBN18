@@ -1,157 +1,50 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <title>Todo App</title>
-
-    <style>
-      body {
-        padding: 20px;
-        font-family: Arial;
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-
-      th,
-      td {
-        border: 1px solid black;
-        padding: 10px;
-        text-align: center;
-      }
-
-      button {
-        margin: 5px;
-        padding: 5px 10px;
-      }
-
-      input {
-        padding: 5px;
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
   </head>
-
   <body>
-    <h1>Todo App</h1>
-
-    <input type="text" id="taskInput" placeholder="Enter Task" />
-
-    <button onclick="addTask()">Add Task</button>
-
-    <br /><br />
-
-    <table>
-      <thead>
-        <tr>
-          <th>Task</th>
-
-          <th>Actions</th>
-        </tr>
-      </thead>
-
-      <tbody id="taskTable"></tbody>
-    </table>
+    <h1>To Do</h1>
+    <input id="input" type="text" placeholder="Enter Task" />
+    <button id="btn">Add Task+</button>
+    <ul id="list"></ul>
 
     <script>
-      function addTask() {
-        let input = document.getElementById("taskInput");
+      let arr = [];
+      let list = document.getElementById("list");
+      let btn = document.getElementById("btn");
 
-        let value = input.value.trim();
+      btn.addEventListener("click", () => {
+        let input = document.getElementById("input").value.trim();
 
-        if (value === "") {
-          alert("Enter task");
-
+        if (!input) {
           return;
         }
+        arr.push({ input, id: Date.now() });
+        render();
+        document.getElementById("input").value = "";
+      });
+      function deleteTask(id) {
+        arr = arr.filter((el) => el.id !== id);
+        render();
+      }
 
-        let row = document.createElement("tr");
+      function editTask(inp, id) {
+        let newInp = prompt("Enter the task to edit", inp);
+        if (!newInp) return;
+        arr = arr.map((el) => (el.id === id ? { ...el, input: newInp } : el));
+        render();
+      }
 
-        // TASK CELL
-
-        let taskCell = document.createElement("td");
-
-        taskCell.innerText = value;
-
-        // ACTION CELL
-
-        let actionCell = document.createElement("td");
-
-        // EDIT BUTTON
-
-        let edit = document.createElement("button");
-
-        edit.innerText = "Edit";
-
-        // DELETE BUTTON
-
-        let del = document.createElement("button");
-
-        del.innerText = "Delete";
-
-        // DELETE
-
-        del.addEventListener("click", () => {
-          row.remove();
-        });
-
-        // EDIT
-
-        edit.addEventListener("click", () => {
-          let current = taskCell.innerText;
-
-          // convert text to input
-
-          taskCell.innerHTML = `<input value="${current}">`;
-
-          let editInput = taskCell.querySelector("input");
-
-          // cursor auto focus
-
-          editInput.focus();
-
-          // cursor at end
-
-          editInput.setSelectionRange(current.length, current.length);
-
-          // SAVE BUTTON
-
-          let save = document.createElement("button");
-
-          save.innerText = "Save";
-
-          // replace edit
-
-          edit.replaceWith(save);
-
-          // SAVE LOGIC
-
-          save.addEventListener("click", () => {
-            let updated = editInput.value;
-
-            if (updated === "") {
-              alert("Task cannot be empty");
-
-              return;
-            }
-
-            taskCell.innerText = updated;
-
-            save.replaceWith(edit);
-          });
-        });
-
-        // APPEND
-
-        actionCell.append(edit, del);
-
-        row.append(taskCell, actionCell);
-
-        document.getElementById("taskTable").append(row);
-
-        // clear input
-
-        input.value = "";
+      function render() {
+        list.innerHTML = arr
+          .map(
+            (el) =>
+              `<li>${el.input} <button onclick = "editTask('${el.input}',${el.id})">Edit</button><button onclick = "deleteTask(${el.id})">Delete</button></li>  `,
+          )
+          .join("");
       }
     </script>
   </body>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .bookCard {
+        border: 1px solid black;
+        border-radius: 8px;
+        padding: 12px;
+        margin: 10px;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>All Books</h1>
+    <div id="books"></div>
+    <button id="btn">Click here to load books of Harry potter</button>
+
+    <script>
+      async function getdata() {
+        const data = await fetch(
+          "https://potterapi-fedeperin.vercel.app/en/books",
+        );
+        const books = await data.json().slice(0, 5);
+        return books;
+      }
+
+      function displayBookData(data) {
+        document.getElementById("books").innerHTML = data
+          .map(
+            (book) => `
+            <div class="bookCard">
+              <img src="${book.cover}"  />
+              <h2>${book.title}</h2>
+              <p>${book.description}</p>
+              <p>${book.pages} Pages</p>
+              <p>${book.releaseDate}</p>
+            </div>
+          `,
+          )
+          .join("");
+      }
+
+      document.getElementById("btn").addEventListener("click", async () => {
+        const data = await getdata();
+        displayBookData(data);
+      });
+    </script>
+  </body>
+</html>

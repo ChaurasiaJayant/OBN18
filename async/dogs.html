@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dog factss</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      #parent {
+        background: #833ab4;
+        background: linear-gradient(
+          90deg,
+          rgba(131, 58, 180, 0.91) 0%,
+          rgba(253, 29, 29, 1) 50%,
+          rgba(252, 176, 69, 1) 100%
+        );
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-direction: column;
+      }
+      #btn {
+        padding: 15px;
+        border: none;
+        border-radius: 10px;
+        font-size: larger;
+      }
+      .facts {
+        background-color: transparent;
+        border: 2px solid white;
+        height: auto;
+        width: auto;
+        padding: 10px;
+        color: white;
+        font-size: large;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <div id="facts"></div>
+      <button id="btn">Get Facts</button>
+    </div>
+
+    <script>
+      const btn = document.getElementById("btn");
+      const div = document.getElementById("facts");
+
+      btn.addEventListener("click", () => {
+        console.log("hello");
+        async function getFacts() {
+          try {
+            let res = await fetch("https://dogapi.dog/api/v1/facts");
+            const data = await res.json();
+
+            div.classList.add("facts");
+            div.textContent = data.facts[0];
+          } catch (err) {
+            console.log(err);
+          }
+        }
+
+        getFacts();
+      });
+    </script>
+  </body>
+</html>

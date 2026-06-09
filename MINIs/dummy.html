@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>To Do</h1>
+    <input id="input" type="text" placeholder="Enter Task" />
+    <button onclick="addTask()">Add Task</button>
+    <ul id="list"></ul>
+
+    <script>
+      let arr = [];
+
+      function addTask() {
+        let input = document.getElementById("input");
+        if (!input.value.trim()) return;
+        arr.push({ id: Date.now(), text: input.value.trim() });
+        input.value = "";
+        render();
+      }
+
+      function deleteTask(id) {
+        arr = arr.filter((el) => el.id !== id);
+        render();
+      }
+
+      function saveTask(id) {
+        let newText = document.getElementById("edit-" + id).value.trim();
+        if (!newText) return;
+        arr = arr.map((el) => (el.id === id ? { ...el, text: newText } : el));
+        render();
+      }
+
+      function render() {
+        let html = "";
+        arr.forEach((el) => {
+          html += `<li>
+      ${el.text}
+      <input id="edit-${el.id}" value="${el.text}" style="display:none" />
+      <button onclick="document.getElementById('edit-${el.id}').style.display='inline'; document.getElementById('save-${el.id}').style.display='inline'; this.style.display='none'">Edit</button>
+      <button id="save-${el.id}" style="display:none" onclick="saveTask(${el.id})">Save</button>
+      <button onclick="deleteTask(${el.id})">Delete</button>
+    </li>`;
+        });
+        document.getElementById("list").innerHTML = html;
+      }
+    </script>
+  </body>
+</html>
