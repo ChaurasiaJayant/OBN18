@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="inp" placeholder="Enter task" />
+    <button id="btn">Add Task</button>
+    <div id="list"></div>
+
+    <script>
+      let list = document.getElementById("list");
+      const btn = document.getElementById("btn");
+      let arr = [];
+
+      btn.addEventListener("click", () => {
+        let input = document.getElementById("inp").value.trim();
+        if (!input) return;
+
+        arr.push({ input, id: Date.now() });
+        render();
+        document.getElementById("inp").value = "";
+      });
+
+      function deleteTask(id) {
+        arr = arr.filter((el) => el.id !== id);
+        render();
+      }
+
+      function editTask(input, id) {
+        let newTask = prompt("Enter your task", input);
+
+        arr = arr.map((el) => {
+          return el.id == id ? { ...el, input: newTask } : el;
+        });
+        render();
+      }
+
+      function render() {
+        list.innerHTML = arr
+          .map((el) => {
+            return `<li>${el.input}  <button onclick="editTask('${el.input}', ${el.id})">Edit</button>   <button onclick="deleteTask(${el.id})">Delete</button></li>`;
+          })
+          .join("");
+      }
+    </script>
+  </body>
+</html>

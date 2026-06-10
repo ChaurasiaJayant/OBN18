@@ -64,4 +64,27 @@ class Products {
 const apple = new Products("apple", "90", 2);
 console.log(apple);
 // apple.orderProduct();
-apple.applyCoupon("JAYANT20");
+// apple.applyCoupon("JAYANT20");
+
+class CoffeeMachine {
+  makeCoffee() {
+    this.boilWater();
+    this.addCoffee();
+    this.pourIntoCup();
+  }
+
+  boilWater() {
+    console.log("Boiling water");
+  }
+
+  addCoffee() {
+    console.log("Adding coffee");
+  }
+
+  pourIntoCup() {
+    console.log("Pouring coffee");
+  }
+}
+let c1 = new CoffeeMachine();
+// c1.makeCoffee();
+c1.addCoffee();

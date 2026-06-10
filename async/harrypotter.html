@@ -33,7 +33,7 @@
         const data = await fetch(
           "https://potterapi-fedeperin.vercel.app/en/books",
         );
-        const books = await data.json().slice(0, 5);
+        const books = await data.json();
         return books;
       }
 
