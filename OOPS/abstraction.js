@@ -62,7 +62,7 @@ class Products {
 }
 
 const apple = new Products("apple", "90", 2);
-console.log(apple);
+// console.log(apple);
 // apple.orderProduct();
 // apple.applyCoupon("JAYANT20");
 
@@ -87,4 +87,35 @@ class CoffeeMachine {
 }
 let c1 = new CoffeeMachine();
 // c1.makeCoffee();
-c1.addCoffee();
+// c1.addCoffee();
+
+// class Animal {
+//   constructor(name) {
+//     this.name = name;
+//   }
+// }
+
+// class Dog extends Animal {
+//   constructor(name) {
+//     super(name);
+//   }
+// }
+
+// const dog = new Dog("Tommy");
+
+// console.log(dog.name);
+
+class Animal {
+  eat() {
+    console.log("Eating");
+  }
+}
+
+class Dog extends Animal {
+  eat() {
+    super.eat();
+    console.log("Dog eating");
+  }
+}
+let d = new Dog();
+d.eat();
