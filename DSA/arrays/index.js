@@ -366,13 +366,142 @@ function intervals(arr) {
   arr.sort((a, b) => {
     return a[0] - b[0];
   });
+
+  for (let el of arr) {
+  }
+  let temp = [];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i][0] < arr[i - 1][arr[i].length - 1]) {
+      temp.push(arr[i - 1][0], arr[i][arr[i].length - 1]);
+    } else {
+    }
+  }
+}
+// console.log(
+//   intervals([
+//     [1, 3],
+//     [2, 6],
+//     [8, 10],
+//     [15, 18],
+//   ]),
+// );
+function mergeIntervals(arr) {
+  arr.sort((a, b) => a[0] - b[0]);
+
+  let result = [arr[0]];
+
+  for (let i = 1; i < arr.length; i++) {
+    let last = result[result.length - 1];
+    let current = arr[i];
+
+    if (current[0] <= last[1]) {
+      last[1] = Math.max(last[1], current[1]);
+    } else {
+      result.push(current);
+    }
+  }
+
+  return result;
+}
+
+// console.log(
+//   mergeIntervals([
+//     [1, 3],
+//     [2, 6],
+//     [8, 10],
+//     [15, 18],
+//   ]),
+// );
+// [[1,6], [8,10], [15,18]]
+
+// console.log(
+//   mergeIntervals([
+//     [1, 4],
+//     [4, 5],
+//   ]),
+// );
+// [[1,5]]
+
+function myMap(arr, fun) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    result.push(fun(arr[i]));
+  }
+  return result;
+}
+
+// console.log(myMap([1, 2, 3], (el) => el * 4));
+
+function waysToMakeChange(amount, coins) {
+  // create an array of size amount+1 filled with 0
+  let dp = new Array(amount + 1).fill(0);
+
+  // there is 1 way to make amount 0 — use no coins
+  dp[0] = 1;
+
+  for (let coin of coins) {
+    for (let i = coin; i <= amount; i++) {
+      dp[i] = dp[i] + dp[i - coin];
+    }
+  }
+
+  return dp[amount];
+}
+
+// console.log(waysToMakeChange(5, [1, 2, 5])); // 4
+// console.log(waysToMakeChange(3, [1, 2])); // 2
+
+//  Remove given element
+// Example: [3,2,2,3] → [2,2]
+
+function remove(arr, el) {
+  let res = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == el) {
+      continue;
+    } else {
+      res.push(arr[i]);
+    }
+  }
+  return res;
+}
+
+// console.log(remove([3, 2, 2, 3], 3));
+
+// Shuffle array randomly
+// 	[1,2,3,4]	[3,1,4,2] (random)
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    let random = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[random]] = [arr[random], arr[i]];
+  }
   return arr;
 }
-console.log(
-  intervals([
-    [1, 3],
-    [2, 6],
-    [8, 10],
-    [15, 18],
-  ]),
-);
+console.log(shuffle([1, 2, 3, 4]));
+
+function s2(arr) {
+  let set = new Set();
+
+  while (set.size !== arr.length) {
+    let random = Math.floor(Math.random() * arr.length);
+    set.add(arr[random]);
+  }
+  return [...set];
+}
+
+// console.log(s2([8, 5, 6, 4, 3, 1, 2, 7]));
+
+function commonElements(arr1, arr2) {
+  let set = new Set(arr1);
+
+  let res = [];
+  for (let el of arr2) {
+    if (set.has(el)) {
+      res.push(el);
+    }
+  }
+  return res;
+}
+
+console.log(commonElements([5, 4, 7, 6], [5, 7, 8, 9]));
