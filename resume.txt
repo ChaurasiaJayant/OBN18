@@ -1,0 +1,250 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%	The MIT License (MIT)
+%
+%	Copyright (c) 2021 Jitin Nair
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%	
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%	
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+% article class because we want to fully customize the page and not use a cv template
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
+
+%debug page outer frames
+%\usepackage{showframe}
+
+
+% job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    }
+    {
+    }
+
+\newenvironment{joblong}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
+
+
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+% \begin{tabularx}{\linewidth}{ @{}X X@{} }
+% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
+% \raisebox{-0.05\height}\faGithub\ username \ | \
+% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
+% \end{tabularx}
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{JAYANT CHAURASIA} \\[7.5pt]
+
+\href{https://github.com/ChaurasiaJayant}{\raisebox{-0.05\height}\faGithub\ ChaurasiaJayant} \ $|$ \ 
+\href{https://www.linkedin.com/in/jayant-chaurasia-61801230b}{\raisebox{-0.05\height}\faLinkedin\ Jayant Chaurasia} \ $|$ \ 
+\href{mailto:devjayantt@gmail.com}{\raisebox{-0.05\height}\faEnvelope\ devjayantt@gmail.com} \ $|$ \ 
+\href{tel:+918576941228}{\raisebox{-0.05\height}\faMobile\ +91 8576941228} \\
+
+\end{tabularx}
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTIONS
+%----------------------------------------------------------------------------------------
+
+%Interests/ Keywords/ Summary
+\section{Summary}
+Frontend Developer skilled in React.js, Node.js and Express.js. Interned at 
+Softpro India Pvt. Ltd building 8+ responsive web pages and integrating REST APIs. 
+Developed an AI powered GitHub analyzer using Groq LLM API showcasing 
+strong API integration and problem solving skills.
+%Experience
+\section{Work Experience}
+
+
+
+
+\begin{joblong}{Frontend Developer Intern}{Feb 2025 – May 2025}
+\textit{Softpro India Pvt Ltd}
+\vspace{4pt}
+
+\item [\textbullet] Built 8+ responsive web pages reducing design-to-code time using React, 
+  Bootstrap and Tailwind CSS.
+\item [\textbullet] Ensured cross-device compatibility via media queries across all screen sizes.
+\item [\textbullet] Integrated REST APIs to fetch and display dynamic data across 3+ modules.
+\item  [\textbullet]Collaborated within a 4-member team using Git and GitHub.
+\end{joblong}
+  
+%Projects
+\section{Projects}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{RepoGPT – AI Powered GitHub Repository Analyzer} & \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{\small
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=2pt,label=\textbullet]
+    \item Built a full stack \textbf {AI powered GitHub repository analyzer} using \textbf {React}, 
+  \textbf{ Express.js} and \textbf {GitHub API} supporting 5+ programming languages.
+    \item Integrated \textbf {Groq LLM API} to automate code reviews, detect bugs and generate 
+  optimization suggestions reducing manual review effort significantly.
+    \item Implemented repository browsing, folder navigation, syntax highlighting and markdown rendered AI analysis.
+    \item Deployed a fully responsive application with interactive code visualization 
+  and seamless user experience.
+\end{itemize}
+\end{minipage}
+}
+\end{tabularx}
+
+\vspace{8pt}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{E-Commerce Landing Page} & \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{\small
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=2pt,label=\textbullet]
+    \item Built a responsive e-commerce landing page using \textbf{HTML, CSS \& JavaScript} with an Apple Store-inspired UI featuring smooth scroll and hero sections.
+    \item Implemented a \textbf{Swiper.js carousel} with auto-play, pagination, and active-slide zoom transitions.
+    \item Used \textbf{CSS Grid \& Flexbox} for multi-column product sections and a structured footer.
+   
+\end{itemize}
+\end{minipage}
+}
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+\section{Skills}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+
+\textbf{Frontend : } & \normalsize{HTML5, CSS3, JavaScript, React.js, Bootstrap, Tailwind CSS.} \\
+
+\textbf{Backend :} & \normalsize{Node.js, Express.js, RESTful APIs.} \\
+
+\textbf{Database :} & \normalsize{MySQL, MongoDB.} \\
+
+\textbf{Tools \& Version Control :} & \normalsize{Git, GitHub, VS Code, npm, Nodemon.} \\
+
+\textbf{Other :} & \normalsize{Responsive Design, AI/LLM Integration, Postman} \\
+
+\end{tabularx}
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}X r@{}}
+
+\textbf{Integral University, Lucknow} & Jul 2022 -- May 2025 \\
+Bachelor of Computer Applications (BCA) & CGPA: 8.6/10 \\[6pt]
+
+\textbf{St. Joseph School} & May 2022 \\
+Class XII (Senior Secondary) & Percentage: 74.7\% \\
+
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS
+
+
+\end{document}

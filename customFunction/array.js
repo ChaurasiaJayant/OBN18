@@ -54,5 +54,17 @@ Array.prototype.myFilter = function (fun) {
   }
   return res;
 };
+
+Array.prototype.myReduce = function (fun, val) {
+  let sum = val !== undefined ? val : 0;
+
+  for (let i = 0; i < this.length; i++) {
+    sum = fun(sum, this[i]);
+  }
+  return sum;
+};
 console.log([1, 2, 3, 4, 5].myMap((el) => el * el));
 console.log([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].myFilter((el) => el % 2 == 0));
+console.log(
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].myReduce((acc, sum) => acc + sum, 0),
+);
