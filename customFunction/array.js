@@ -68,3 +68,16 @@ console.log([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].myFilter((el) => el % 2 == 0));
 console.log(
   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].myReduce((acc, sum) => acc + sum, 0),
 );
+
+// async function getUsers() {
+//   console.log("Start");
+
+//   const data = await fetch(
+//     "https://www.linkedin.com/in/jayant-chaurasia-61801230b/",
+//   );
+//   console.log(data);
+//   console.log("End");
+// }
+
+// getUsers();
+// ----------------------------------next ques---------------------
