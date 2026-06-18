@@ -504,4 +504,22 @@ function commonElements(arr1, arr2) {
   return res;
 }
 
-console.log(commonElements([5, 4, 7, 6], [5, 7, 8, 9]));
+// console.log(commonElements([5, 4, 7, 6], [5, 7, 8, 9]));
+
+// ------two sum
+
+function twoSum(arr, target) {
+  let map = new Map();
+
+  for (let i = 0; i < arr.length; i++) {
+    let complement = target - arr[i];
+    if (map.has(complement)) {
+      return [map.get(complement), i];
+    } else {
+      map.set(arr[i], i);
+    }
+  }
+}
+
+let arr = [3, 6, 5, 8, 2];
+console.log(twoSum(arr, 8));

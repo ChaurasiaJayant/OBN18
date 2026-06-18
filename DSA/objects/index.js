@@ -94,4 +94,4 @@ function invertObjects(obj) {
 
   return result;
 }
-console.log(invertObjects({ a: 1, b: 2 }));
+// console.log(invertObjects({ a: 1, b: 2 }));
