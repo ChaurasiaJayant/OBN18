@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: rgba(215, 216, 250, 0.564);
+        display: flex;
+        justify-content: center;
+        font-family: Arial, Helvetica, sans-serif;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .chat-container {
+        width: 100%;
+        max-width: 500px;
+        height: 70vh;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        /* padding: 20px; */
+        border-radius: 20px;
+      }
+
+      .chat-header {
+        background-color: rgb(0, 60, 255);
+        padding: 10px;
+        color: white;
+        font-size: larger;
+        font-family: Arial, Helvetica, sans-serif;
+
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        text-align: center;
+      }
+
+      .messages {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: white;
+        padding: 20px;
+        height: 90%;
+      }
+
+      .message {
+        padding: 10px;
+        border-radius: 20px;
+
+        width: fit-content;
+      }
+
+      .user {
+        background-color: rgb(197, 197, 197);
+        align-self: flex-end;
+      }
+
+      .bot {
+        background-color: rgb(143, 143, 252);
+        align-items: flex-start;
+      }
+      .chat-input {
+        display: flex;
+        padding: 10px;
+        justify-content: space-between;
+      }
+
+      .chat-input input {
+        padding: 10px;
+        font-size: 15px;
+        border-radius: 15px;
+        width: 80%;
+      }
+
+      .chat-input button {
+        border-radius: 20px;
+        background-color: blue;
+        color: white;
+        width: 19%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Gemini Integrated Chatbot</h1>
+
+    <div class="chat-container">
+      <div class="chat-header">Gemini Bot is here for help!</div>
+
+      <div class="messages" id="chatMessages">
+        <div class="bot message" id="botMessage">Hey!, Ask me anything!</div>
+
+        <div class="user message">Hey whatsup</div>
+      </div>
+
+      <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Type a message..." />
+        <button id="sendBtn">Send</button>
+      </div>
+    </div>
+
+    <script>
+      const chatMessages = document.getElementById("chatMessages");
+      const userInput = document.getElementById("userInput");
+      const sendBtn = document.getElementById("sendBtn");
+
+      function addMessage(text, sender) {
+        const div = document.createElement("div");
+        div.className = `message ${sender}`;
+        div.textContent = text;
+        chatMessages.appendChild(div);
+      }
+
+      async function callGemini(message) {
+        const api_key = "your_api_key";
+        // const response = await fetch()
+        let url =
+          "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
+
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "x-goog-api-key": `${api_key}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            contents: [
+              {
+                parts: [
+                  {
+                    text: message,
+                  },
+                ],
+              },
+            ],
+          }),
+        });
+
+        const data = await response.json();
+
+        if (data.error) {
+          const error = data.error;
+          console.log(error);
+          throw {
+            code: error.code,
+            message: error.message || "API error",
+          };
+        }
+
+        const reply = data.candidates[0].content.parts[0].text;
+        return reply;
+      }
+
+      async function sendMessage() {
+        const userQuery = userInput.value.trim();
+        if (!userQuery) {
+          return;
+        }
+        addMessage(userQuery, "user");
+
+        userInput.value = "";
+        sendBtn.disabled = true;
+
+        let reply;
+
+        try {
+          reply = await callGemini(userQuery);
+        } catch (err) {
+          reply = `Error Caught: ${err.message}`;
+        }
+
+        addMessage(reply, "bot");
+        sendBtn.disabled = false;
+        userInput.focus;
+      }
+      sendBtn.addEventListener("click", sendMessage);
+    </script>
+  </body>
+</html>
