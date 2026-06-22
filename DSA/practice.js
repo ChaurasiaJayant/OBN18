@@ -16,3 +16,34 @@ function merge(intervals) {
 
   return result;
 }
+
+function throttle(func, delay) {
+  let last = 0;
+  return function (...args) {
+    let now = Date.now();
+    if (now - last >= delay) {
+      last = now;
+      func.apply(this, args);
+    }
+  };
+}
+
+let cart = [
+  { name: "Shirt", price: 500, quantity: 2 },
+  { name: "Pant", price: 800, quantity: 1 },
+  { name: "Shoes", price: 1200, quantity: 1 },
+];
+
+function bill(arr) {
+  let total = 0;
+  for (let item of arr) {
+    total += item.price;
+  }
+
+  if (total > 2000) {
+    total = total * 0.9;
+  }
+
+  return total + total * 0.18;
+}
+console.log(bill(cart));
